@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GES 411 Scope and Philosophy - Assignment 2</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --sidebar-width: 250px;
+            --header-height: 60px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-height);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .container {
+            display: flex;
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height));
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: white;
+            border-right: 1px solid #ddd;
+            padding: 1.5rem;
+            position: fixed;
+            height: calc(100vh - var(--header-height));
+            overflow-y: auto;
+        }
+        
+        .sidebar h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar a:hover, .sidebar a.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 2rem;
+            margin-left: var(--sidebar-width);
+        }
+        
+        .paper-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+        
+        .paper-header h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .paper-header p {
+            color: #666;
+        }
+        
+        .paper-section {
+            margin-bottom: 2rem;
+            scroll-margin-top: 5rem;
+        }
+        
+        .paper-section h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .paper-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .references {
+            border-top: 2px solid var(--primary-color);
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .references h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .references p {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            text-indent: -2rem;
+        }
+        
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GES 411 Paper</h1>
+        <button class="mobile-nav-toggle">☰</button>
+    </header>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#main-content" class="active">Main Content</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <div class="paper-header">
+                <h1>GES 411 Scope and Philosophy</h1>
+                <p>Assignment 2</p>
+                <p>Alex Broz</p>
+                <p>Oct. 11, 2023</p>
+            </div>
+            
+            <section id="main-content" class="paper-section">
+                <p>The history and trajectory of the study of Geography is fraught and full
+                of anxieties. Though this history is not necessarily tied to what
+                happened to the department at Harvard, it is still a quite useful place
+                from which to focus our lens. When we read the history of the Geography
+                Department at Harvard we see a few things at play (Smith, 1987). First
+                there are the characters, representatives of their classes and
+                circumstances acting in roles in which we are not entirely surprised by.
+                Second, there are the textured themes of the institutional Academy at
+                the middle of the twentieth century. Third, there is the particular
+                intellectual history of the field of Geography up until this inflection
+                point, and then what has transpired since then.</p>
+                
+                <p>The further in time from the viewer an event is will change the
+                perspective and the understanding. Too close too it; and it is too
+                massive to comprehend. Like sitting in the front row of a movie theater.
+                While the immediacy of the event tends to produce more emotion, and
+                visceral connection; generally one must be a certain distance away from
+                it in time to gain a sense of what has transpired following the event.
+                Looking back towards the inception of the study of Geography in the mid
+                1870s from our vantage point in 2023, we look over a chasm of about 150
+                years and find that the elimination of Geography at Harvard take places
+                almost directly between these two points. A symmetry that maybe we can
+                use to help us better understand things.</p>
+                
+                <p>Why did Geography generally emerge out of the study of Geology in the US
+                University systems? If we can cast ourselves back to that time, we will
+                understand that Industrial Capital is expanding its spread further
+                across the Globe. In the United States following the US Civil War, where
+                Northern Industrial Capital dominated the Southern Slave based
+                Agricultural Capital, a newly empowered national Industrial Capital
+                began to emerge. This churning machine needs resources and people and
+                land to feed its ravenous hunger. The study of Geology at these
+                educational institutions allows for this capital to better find and
+                extract the mineral wealth it requires. It is employed as a tool for
+                imperial industrial capital. This is the environment which Geography
+                emerges out of Geography.</p>
+                
+                <p>While these both are tools for studying the earth and human's relation
+                to it and the other people and things upon it, the Academy is a
+                participant in this project. Producing the competent professional
+                managerial class it requires to out compete the other voracious national
+                amalgams of Capital and Power. Geographers have for long before the
+                advent of the early modern capital driven world been involved in the
+                work of imperial colonial projects. Long before our globe encircling
+                satellite network, there was a time when people did not necessarily know
+                the shape of continents or the origins of rivers. Geographers used their
+                knowledge to map and understand the regions of the world, and were
+                encouraged to do so by political power in order to capitalize upon this
+                information about where advantage lay. Trade routes, the locations of
+                desert oasis, and gold deposits all these were deeply guarded secrets.</p>
+                
+                <p>This knowledge of the landscape of the outside world has always been
+                entangled with the expansion of political power. So it is no surprise to
+                see it still being entangled with it as political power becomes infused
+                with the emergent national amalgams of modern industrial capital in the
+                late 19<sup>th</sup> century.</p>
+                
+                <p>This strain of geographic thought and practice as it came into its own
+                in the Academy sought the legitimacy of other departments and fields. As
+                legitimacy in this modern context was primarily seen as scientific and
+                rational so to must Geography strive to achieve these goals in its own
+                realm. Here we see environmental determinism, the mapping of racial
+                characteristics, and other pseudo-science endeavors at the vanguard of
+                geographical scholarship and thought. Geographers were doing the work of
+                empire here. Mackinder (1904) for example while seeming to outline some
+                truism about the centrality of Eurasia was instead merely making a
+                justification for Britain's own massive empire and continued expansion.
+                With the fiery conflagration which started in 1914 and ended with the
+                Allied victory in 1945, this search for a unified approach to geographic
+                thought fell out of favor. The pseudo-science was discredited and so
+                with it went most of the field's search for a unifying theme. Even the
+                notion of having a unified theme seemed suspect.</p>
+                
+                <p>This is the larger Academy background into which we find the
+                cancellation of Harvard's Geography department following the concluding
+                of the world wars. It is notable that in early the years of the 20<sup>th</sup>
+                century the study of geography in the US became much more focused
+                providing military assistance. This makes some sense as a continuation
+                of the imperial project which it participated in in the late 19<sup>th</sup>
+                century. With the closing of the frontier, the great national based
+                amalgams of industrial capital no longer were contending for territory
+                which was unspoken for, so to speak.</p>
+                
+                <p>It is interesting that Derwent Whittlesey had assumed that there would
+                be a great out flowing of funds from the victorious US government
+                towards Geography programs in the US, like Harvard's following the end
+                of the two world wars and in the service of establishing a post-war Pax
+                Americana. This piece of information seems to support the notion that so
+                much of the push behind Geographical study in the US Academy was in the
+                support of imperial projects. Why this did not materialize is still
+                worth studying. Perhaps it is due to the nature of this new US Capital
+                dominant hegemony. Perhaps it felt that the kind of expertise which
+                geographers could provide was not useful or compatible with the type of
+                domination it was producing. Or it could be that focus for the
+                development of producing new imperial tools lay outside the usually
+                dominant centers of established power in the North East of the US, and
+                instead was being spent in the newly emergent West and Sunbelt areas.
+                This direction and interruption of resources from the center seems to
+                play a much larger role in the future and direction of Geography at
+                Harvard than the proximate causes of homophobia and inter-departmental
+                politics. While these certainly played major roles in the events of the
+                discontinuation of the department, I do not believe that they are or
+                were unique to Harvard or to this time period. They might offer an
+                immediate explanation to understand this particular case, but they are
+                not sufficient in and of themselves to explain the predicament of
+                Geography as a whole.</p>
+                
+                <p>This piece takes a similar view of the circumstances surrounding the
+                downfall of Geography departments at ANU (Lahiri-Dutt, 2018) and at the
+                University of Michigan (Huntley & Rosenblum, 2020). While there might be
+                proximate causes related to misogyny, racism, the loss of significant
+                figures within the department, or political disagreements with the
+                faculty; none of these are especially unique to Geography departments
+                and none of them are able to explain the "existential anxieties" within
+                Geography.</p>
+                
+                <p>Harvard's discontinuation of Geography is to be taken as a symbol, an
+                inflection point in the history of the field of Geography, after which
+                the flood gates of retrenchment seemed to open. As a field, it continues
+                to struggle intellectually to define itself. With the emergence of a
+                Geography separate from Geology, Geography found itself with two parts:
+                one wedded to the physical, the geomorphic; and the other attempting to
+                describe a human connection. This split identity was able to find
+                intellectual purchase with the pursuit of "truth" through the
+                exploration of the idea environmental determinism. With this idea being
+                discredited, there was no unified idea to bring its parts together.
+                Though theorists within the field have made attempts to bridge this gap
+                it seems clear through the intervening years and through the cases at
+                both U of M and ANU that the discipline still resides in this
+                no-mans-land, wandering the wilderness in the aftermath.</p>
+                
+                <p>Geographers have even given this term a name and discuss it frequently,
+                the "unity myth". This idea, which if Geographers are unable to agree
+                upon one object of their study, then Geography must instead be the
+                invisible bridge which connects all these disparate strains of hard and
+                social sciences. However, it seems clear that this unity myth is mostly
+                just that. This myth is a shibboleth for Geographers who are unable to
+                agree upon what they all do together. Taking the example of U of M and
+                in looking at their list of professors and their areas of study it is
+                notable that though many will speak about Geography being a bridge, the
+                faculty was pretty clearly divided between two halves and that there was
+                no obvious crossover between cultural and physical.</p>
+                
+                <p>This intellectual drift has of course been exacerbated by the
+                neo-liberal turn of the last quarter or so of the 20<sup>th</sup> century
+                assaulting the Academia, which looks for ways to extract value and cut
+                funding in the service of supposed "efficiency". This pressure has has
+                bared down across the Academy and caused much consternation and
+                tribulation. The competition for funding, for students; between
+                institutions, departments, and faculty members has only worked to
+                further degrade and demoralize. The largest and most egregious take away
+                from the study of the naming changes of various Geography and Geography
+                related departments in the US and Canada was how vapid it all is.
+                Academics trying to ape the workings of marketers. For faculty to all
+                but ask students to tell them what their department or class should be
+                called only fits further into both this neo-liberal turn as well as the
+                decades long drift for the field.</p>
+                
+                <p>If the field still is unable to come up with a convincing explanation
+                for what the main object of their inquiry is which can encompass all
+                that Geographers do, then it certainly seems unlikely that it can do so
+                under these current trends which see the costs of higher education
+                rising with no end in sight and thus ever greater pressures which will
+                be brought to bear upon the field. I cannot see how this field can hold
+                together without a unifying object of purpose. Of course the current
+                trends within the Academy also seem unlikely that a unifying direction
+                will come about. It does seem however that Geographers in the Academy
+                are quite fearful of this loss of departmental status. Though it is
+                unclear if this fear around this stems from the loss of power, prestige,
+                and job security that are centered within a department or if it has
+                anything to do with needing a department to give validity and
+                intellectual gravity to their teaching and research.</p>
+                
+                <p>We certainly have seen how the arc of US geography departments have
+                developed out of the contingency of circumstance and necessity rising
+                out of Geology in the mid 19<sup>th</sup> century. The status of a department is
+                cherished, but is it needed? Does it best serve the study of Geography?
+                Clearly Geography is nothing if not an interdisciplinary subject and it
+                is this interdisciplinarity which is both its strength and weakness.
+                While some academics may dream of an interdisciplinary higher education
+                with fewer or even no traditional departments, it generally remains only
+                that, a dream. And under the current circumstances of economics and
+                politics it is unlikely that it will be a strong trend reshaping higher
+                ed anytime soon. It does seem to be however the best option and the one
+                most suited to the nature of Geography. Geography is the study of space
+                and place, it is an attempt to understand the relations between things
+                within space and the perspective we have on those things and how
+                positions within space affect those perspectives. Geography is concerned
+                with things at a range of scales: there is a global geography, national
+                geography, regional geography, local geography, a domestic geography,
+                and even a microscopic geography. It is this nature which causes it to
+                be so challenged by the current limited configuration of departments
+                within a US Academic context.</p>
+                
+                <p>Perhaps this is to be expected. It is quite curious that Herodotus is
+                both the father of Geography as well as History. He certainly did not
+                set out to create two fields of study or inquiry, but I do not think it
+                is an accident that these two fields have a united origin. Both are the
+                study of quite elemental features of existence: space and time. Both of
+                these elements are, as we have come to understand through contemporary
+                physics, neither as simple or as separate from each other as was
+                commonly thought. Of course, though we may understand through the
+                theoretical lens of physics these truths, it is still something that we
+                mere humans have difficulty understanding or experiencing in ways which
+                are universally understood and expressed. It is the human-centered-ness
+                of these phenomena which we cannot escape and yet it is this which we
+                must use to understand ourselves and our world.</p>
+                
+                <p>While much hay has been made about Geography being a bridge between the
+                hard and the social sciences. We also know that such distinctions are
+                themselves arbitrary. But we do also know that it has continually come
+                up short in this supposed role between the two. And yet maybe, it still
+                could be that bridge, but perhaps the issue is less that it is too
+                ambitious than it is not ambitious enough. Why cannot Geography, like
+                History, embrace its humanity and seek to be a bridge between, not just
+                the hard and social sciences but the humanities as well? This is not a
+                likely path for the field, and certainly not a lucrative one, but it
+                seems to offer more than can the cul-de-sac it finds itself in.</p>
+            </section>
+            
+            <section id="references" class="paper-section references">
+                <h2>References</h2>
+                
+                <p>Huntley, E. & Rosenblum, M. (2020). The Omega Affair: Discontinuing the
+                University of Michigan Department of Geography (1975-1982). Annals of
+                the American Association of Geographers, 111(2).
+                <a href="https://doi.org/10.1080/24694452.2020.1760780" target="_blank">https://doi.org/10.1080/24694452.2020.1760780</a></p>
+                
+                <p>Lahiri-Dutt, K. (2018). "Academic War" over Geography? Death of Human
+                Geography at the Australian National University. Antipode, 51(3),
+                858-877. doi: 10.1111/anti.12496</p>
+                
+                <p>Mackinder, H. (1904) The Geographical Pivot of History. The Geographical
+                Journal, 23(4), 421-437.</p>
+                
+                <p>Smith, N. (1987). "Academic War Over the Field of Geography": The
+                Elimination of Geography at Harvard, 1947-1951. <em>Annals of the American
+                Geogaphers, 77(2)</em> 155-172.</p>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // Toggle mobile navigation
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileNavToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Highlight active section in sidebar
+        const sections = document.querySelectorAll('.paper-section');
+        const navLinks = document.querySelectorAll('.sidebar a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile sidebar after clicking a link
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
